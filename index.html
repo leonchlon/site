@@ -93,29 +93,33 @@
     <!-- Google Form Container -->
     <div class="form-container">
 <form 
-  id="my-form" 
   method="POST" 
   action="https://script.google.com/macros/s/AKfycbx5SuNfbqdUqFeYZn4z0YvBwthA8V2sQtXXKYkP50Vm5Bx8RAjyU1p0tkS97wWVa56Ruw/exec"
   target="hidden-iframe"
 >
-    <input name="Email" type="email" placeholder="Email" required>
-    <button type="submit">Start Survey</button>
+    <input name="Email" type="email" value="test@example.com" required>
+    <button type="submit">Submit</button>
 </form>
+
+<!-- Hidden iframe -->
 <iframe name="hidden-iframe" style="display:none;"></iframe>
+
 
     </div>
 </section>
+
+
 <script>
-window.addEventListener("load", function () {
-    const form = document.getElementById('my-form');
-    form.addEventListener("submit", function () {
-        // Redirect immediately after form submission
-        window.location.href = "2.html";
+    document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent immediate form submission
+        const form = e.target;
+
+        // Submit the form programmatically
+        setTimeout(() => {
+            form.submit(); // Start the form submission
+            window.location.href = "2.html"; // Redirect after starting the submission
+        }, 100); // Small delay to allow submission to initiate
     });
-});
-
 </script>
-
-
 </body>
 </html>
