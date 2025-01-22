@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Google Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
+            border-radius: 8px;
+            background-image: url('2.png');
+            background-size: contain; /* Ensures the whole PNG is visible */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #fff;
+            max-width: 1200px;  /* Set max width for the background section */
+            margin: 0 auto;  /* Center the section */
+        }
+
+        .form-container {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            padding: 20px;
+            text-align: center;
+            width: 50%;  /* Default value */
+        }
+
+        .submit-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .submit-buttons button {
+            width: 100%;  /* Button width fills 100% of the container */
+            max-width: 200px;
+            max-height: 50px;
+            padding: 1.5vw;
+            font-size: clamp(14px, 2.5vw, 18px);   /* Scales between a min and max font size */
+            border: 1px solid black;
+            background-color: transparent;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .submit-buttons button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                width: 60%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section id="section-container">
+    <!-- Form Container with Submit Buttons -->
+    <div class="form-container" id="form-container">
+        <div class="submit-buttons">
+            <a href="english.html" target="_blank">
+                <button type="button">English</button>
+            </a>
+            <a href="https://example.com" target="_blank">
+                <button type="button">Submit Button 2</button>
+            </a>
+            <a href="https://example.com" target="_blank">
+                <button type="button">Submit Button 3</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // JavaScript to dynamically set max-width of buttons to 50% of the form-container width
+    window.addEventListener('load', function() {
+        var formContainer = document.getElementById('form-container');
+        var buttons = document.querySelectorAll('.submit-buttons button');
+        
+        // Get the width of the form container
+        var formContainerWidth = formContainer.offsetWidth;
+
+        // Set the max-width of each button to 50% of the form container width
+        buttons.forEach(function(button) {
+            button.style.maxWidth = (formContainerWidth * 0.5) + 'px';
+        });
+    });
+
+    // Update button width on window resize to keep it responsive
+    window.addEventListener('resize', function() {
+        var formContainer = document.getElementById('form-container');
+        var buttons = document.querySelectorAll('.submit-buttons button');
+        
+        // Get the width of the form container
+        var formContainerWidth = formContainer.offsetWidth;
+
+        // Set the max-width of each button to 50% of the form container width
+        buttons.forEach(function(button) {
+            button.style.maxWidth = (formContainerWidth * 0.5) + 'px';
+        });
+    });
+</script>
+
+</body>
+</html>
