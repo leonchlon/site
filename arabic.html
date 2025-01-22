@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Google Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
+            border-radius: 8px;
+            background-image: url('3.png');
+            background-size: contain; /* Ensures the whole PNG is visible */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #fff;
+            max-width: 1200px;  /* Set max width for the background section */
+            margin: 0 auto;  /* Center the section */
+        }
+
+        .form-container {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            padding: 5px;
+            text-align: center;
+            width: 60%;  /* Fixed width */
+            height: 60%;  /* Fixed width */
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;  /* Adjust to 90% of the screen for medium screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                width: 100%;  /* Full width for small screens */
+            }
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <div class="form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPV8Jkw8XbNit4Rc8xg1B8-C55gCog-A_K8-Y4S6UZclJmdg/viewform?embedded=true" frameborder="0">Loading…</iframe>
+    </div>
+</section>
+
+</body>
+</html>
